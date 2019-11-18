@@ -15,17 +15,42 @@
 */
 
 /**
- * 1) Write a function findLongestWord() that takes an
+ * 1) Write a function findLongestWord() that takes a
  * string returns the first, longest word in the array.
  *
  * i.e. findLongestWord("book dogs") should return "book"
  */
 // ...
 
+const findLongestWord = aString => {
+  const words = aString.split(' ')
+  let longestWordLength = 0
+  let longestWord = ''
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > longestWordLength) {
+      longestWord = words[i]
+      longestWordLength = words[i].length
+    }
+  }
+  return longestWord
+}
+
 /*
  * 2) Define a function sumOfArray that calculates the sum of
  * all the numbers in an array.
  */
+
+// accept an array of numbers reduce and return total
+const sumOfArray = numbers => {
+  // return numbers.reduce((total, num) => {
+  //   return total + num
+  // })
+  let total = 0
+  for (let i = 0; i < numbers.length; i++) {
+    total = total + numbers[i]
+  }
+  return total
+}
 
 /**
  *
@@ -34,8 +59,18 @@
       Your function should return true if the array contains the value, false if not.
  */
 
+const doesContain = (anArray, aValue) => {
+  let contains = false
+  for (let i = 0; i < anArray.length; i++) {
+    if (anArray[i] === aValue) {
+      return true
+    }
+  }
+  return false
+}
+
 /**
- * 4) defined a function called maps. This takes 1 argument, an array or numbers. 
+ * 4) defined a function called maps. This takes 1 argument, an array of numbers. 
  * Your function should return a new array with each value doubled.
     For example:
 
@@ -44,13 +79,26 @@
    Try to use the map method - it comes in very handy quite a lot so is a good one to know.
  *    
  */
+const maps = numbers => {
+  return numbers.map(number => {
+    return number * 2
+  })
+}
 
 /**
- * 5) Write a function called noSpace. This function takes one argument, a string. 
- *    This function should return the string with no spaces. 
- *    For example: 
+ * 5) Write a function called noSpace. This function takes one argument, a string.
+ *    This function should return the string with no spaces.
+ *    For example:
  *    noSpace("This is a my cool thing") should return "Thisisamycoolthing"
-
+ */
+const noSpace = aString => {
+  const words = aString.split(' ')
+  let returnString = ''
+  for (let i = 0; i < words.length; i++) {
+    returnString = returnString + words[i]
+  }
+  return returnString
+}
 
 /**
  * NOTE: Don't modify anything below this line...
